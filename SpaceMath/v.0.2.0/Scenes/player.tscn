@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://83t1p7bbqvfx"]
+[gd_scene load_steps=13 format=3 uid="uid://83t1p7bbqvfx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mex3r"]
 [ext_resource type="Texture2D" uid="uid://lvkypkq5k8o4" path="res://Assets/ship.png" id="2_h6vvi"]
@@ -12,10 +12,6 @@ atlas = ExtResource("2_h6vvi")
 region = Rect2(32, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5oaf"]
-atlas = ExtResource("2_h6vvi")
-region = Rect2(32, 0, 16, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pk2a"]
 atlas = ExtResource("2_h6vvi")
 region = Rect2(32, 0, 16, 24)
 
@@ -52,17 +48,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_b5oaf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b5oaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8pk2a")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kyqsr")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,11 +69,11 @@ animations = [{
 }],
 "loop": false,
 "name": &"move",
-"speed": 7.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chtxl"]
-size = Vector2(64, 90)
+size = Vector2(58, 63)
 
 [node name="Jugador" type="CharacterBody2D" groups=["player_group"]]
 position = Vector2(592, 477)
@@ -93,11 +83,9 @@ script = ExtResource("1_mex3r")
 position = Vector2(1, 57)
 scale = Vector2(4.04688, 3.8125)
 sprite_frames = SubResource("SpriteFrames_abxrg")
-animation = &"move"
+animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 57)
+position = Vector2(2, 46.5)
 shape = SubResource("RectangleShape2D_chtxl")
