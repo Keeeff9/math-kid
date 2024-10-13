@@ -1,15 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 250
+const SPEED = 810
 
-var bullet_scene := preload("res://Scenes/bullet.tscn")
+var bullet_scene := load("res://Scenes/bullet.tscn")
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 var conteo = 0
 
-@onready var sprite = $mainPlayer
-
 # Variable para saber si la animación está activa
 var is_moving = false
+
 
 func _physics_process(delta: float) -> void:
 	movimientopersonaje()

@@ -1,3 +1,6 @@
 Con relacion a la version1, se modifico el random del enemigo para que aparezcan solo en 3 lugares especificos
 se creo interfaz de usuario para iniciar y cuando se termine el juego poder ingresar otra vez
 ya el enemigo se destruye al interactuar con el disparo y se crean random operaciones
+
+
+Prueba2

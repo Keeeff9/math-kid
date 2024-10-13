@@ -10,7 +10,10 @@ func _ready() -> void:
 	GlobalVariables.change_life.connect(change_text_life)
 	GlobalVariables.change_score.connect(change_text_score)
 	GlobalVariables.change_operation.connect(change_operation)
-	GlobalVariables.crearRandomOperation(3, 5) #inicar con valores random
+	var numRandomInicializar = RandomNumberGenerator.new()
+	var num1Ini = numRandomInicializar.randi_range(0,10)
+	var num2Ini = numRandomInicializar.randi_range(0,10)
+	GlobalVariables.crearRandomOperation(num1Ini, num2Ini) #inicar con valores random
 	change_operation()
 	
 	

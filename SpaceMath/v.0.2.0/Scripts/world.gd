@@ -24,20 +24,31 @@ func moveBackground():
 	
 #Generar el asteroide y posicion random 
 func create_enemy():
-	var randomPos =  RandomNumberGenerator.new().randi_range(1,3) # crea pos random
-	var choicePos
-	var enemy = enemy_scene.instantiate()
 	
-	match randomPos:
-		1:
-			choicePos = pos1.position.x
-		2:
-			choicePos = pos2.position.x
-		3:
-			choicePos = pos3.position.x
-			
-	enemy.position = Vector2(choicePos,-10)
-	add_child(enemy)
+	var enemy1 = enemy_scene.instantiate()
+	var enemy2 = enemy_scene.instantiate()
+	var enemy3 = enemy_scene.instantiate()
+	#Obtener la posicion fija para los tres asteroides
+	enemy1.position = Vector2(pos1.position.x,-10)
+	enemy2.position = Vector2(pos2.position.x,-10)
+	enemy3.position = Vector2(pos3.position.x,-10)
+	add_child(enemy1)
+	add_child(enemy2)
+	add_child(enemy3)
+	
+	#obtner el label Respuesta de enemy
+	var enemyLabel1 = enemy1.get_node("Respuesta")
+	var enemyLabel2 = enemy2.get_node("Respuesta")
+	var enemyLabel3 = enemy3.get_node("Respuesta")
+	
+	
+	var answerArray = [GlobalVariables.correct_answer,GlobalVariables.incorret_answer[0],GlobalVariables.incorret_answer[1]]
+	answerArray.shuffle()
+
+	var enemyLabels = [enemyLabel1, enemyLabel2, enemyLabel3]
+	for i in range(enemyLabels.size()):
+		enemyLabels[i].text = "  " + str(answerArray[i])
+
 	
 #Velocidad del escenario a los tiros/asteroides
 func _on_timer_timeout() -> void:
