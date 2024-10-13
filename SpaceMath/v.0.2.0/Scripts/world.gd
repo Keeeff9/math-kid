@@ -16,7 +16,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	moveBackground()
-	_on_timer_timeout()	
 
 #Mover el escenario	
 func moveBackground():
@@ -51,11 +50,6 @@ func create_enemy():
 
 	
 #Velocidad del escenario a los tiros/asteroides
-func _on_timer_timeout() -> void:
-	if jugador.conteo == 5:
-		velocity += 2.0
-		print("Velocidad: ",velocity)
-		jugador.conteo = 0
 
 #crear el enemigo cada cierto tiempo 
 func _on_timer_enemy_timeout() -> void:

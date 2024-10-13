@@ -4,19 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://2plqxvmm5j68" path="res://Assets/asteroidEnemy.png" id="2_v2jxc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soeuh"]
-radius = 72.0625
+radius = 23.0217
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 position = Vector2(1, 0)
 script = ExtResource("1_nrcwp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(2.9375, 2.6875)
+scale = Vector2(1.25, 1.09375)
 texture = ExtResource("2_v2jxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -1)
+texture_filter = 1
 shape = SubResource("CircleShape2D_soeuh")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

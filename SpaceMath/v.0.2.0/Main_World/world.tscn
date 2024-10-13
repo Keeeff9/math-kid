@@ -31,6 +31,7 @@ autostart = true
 position = Vector2(0, 2)
 
 [node name="Jugador" parent="." instance=ExtResource("4_glumr")]
+position = Vector2(595, 537)
 
 [node name="TimerEnemy" type="Timer" parent="."]
 wait_time = 3.5

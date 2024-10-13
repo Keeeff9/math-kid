@@ -1,12 +1,16 @@
 extends Area2D
-var speed := 500
+var speed := 300
 @onready var bullet: Area2D = $"."
+@onready var animated_sprite: AnimatedSprite2D =  $AnimatedSprite2D
+
 ##Hola mundo
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+	animated_sprite.play("idle") 
+	
 
 func _process(delta: float) -> void:
 	position.y -= speed * delta
