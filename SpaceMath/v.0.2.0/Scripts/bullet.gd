@@ -3,7 +3,7 @@ var speed := 300
 @onready var bullet: Area2D = $"."
 @onready var animated_sprite: AnimatedSprite2D =  $AnimatedSprite2D
 
-##Hola mundo
+
 
 
 # Called when the node enters the scene tree for the first time.
