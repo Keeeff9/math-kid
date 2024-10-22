@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://g23050u7d6na"]
+[gd_scene load_steps=6 format=3 uid="uid://g23050u7d6na"]
 
 [ext_resource type="Script" path="res://Scripts/gui.gd" id="1_hkawb"]
 [ext_resource type="Texture2D" uid="uid://dgkkj3qgr6gct" path="res://Assets/Principal.png" id="2_jxw46"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://Assets/fonts/retro.ttf" id="2_mlilq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xg7ms"]
 font_size = 29
@@ -42,11 +43,13 @@ size_flags_vertical = 8
 
 [node name="LifeLabelText" type="Label" parent="Control/MarginContainer/VBoxContainer_Life"]
 layout_mode = 2
-text = "Life"
+theme_override_fonts/font = ExtResource("2_mlilq")
+text = "LIFES"
 label_settings = SubResource("LabelSettings_xg7ms")
 
 [node name="LifeLabelCount" type="Label" parent="Control/MarginContainer/VBoxContainer_Life"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mlilq")
 text = "0"
 label_settings = SubResource("LabelSettings_xg7ms")
 
@@ -58,7 +61,8 @@ size_flags_vertical = 8
 [node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer_Score"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Score: 0"
+theme_override_fonts/font = ExtResource("2_mlilq")
+text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_ebfd4")
 
 [node name="VBoxContainer_Question" type="HBoxContainer" parent="Control/MarginContainer"]
@@ -67,14 +71,15 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer_Question"]
-position = Vector2(36.375, 43)
+position = Vector2(42, 44)
 scale = Vector2(0.404553, 0.317549)
 texture = ExtResource("2_jxw46")
 
 [node name="QuestionLabel" type="Label" parent="Control/MarginContainer/VBoxContainer_Question"]
-modulate = Color(0.268266, 0.1524, 0.343202, 1)
+modulate = Color(0.694971, 0, 0.281307, 0.823529)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_mlilq")
 text = "9 + 9
 "
 label_settings = SubResource("LabelSettings_ebfd4")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm7m8cxvjlixu"]
+[gd_scene load_steps=5 format=3 uid="uid://cm7m8cxvjlixu"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_nrcwp"]
 [ext_resource type="Texture2D" uid="uid://2plqxvmm5j68" path="res://Assets/asteroidEnemy.png" id="2_v2jxc"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://Assets/fonts/retro.ttf" id="3_m86pe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soeuh"]
 radius = 23.0217
@@ -25,6 +26,7 @@ offset_left = -14.0
 offset_top = -12.0
 offset_right = 16.0
 offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("3_m86pe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
