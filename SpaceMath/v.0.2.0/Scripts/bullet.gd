@@ -8,7 +8,6 @@ var speed := 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
 	animated_sprite.play("idle") 
 	
 
@@ -33,7 +32,7 @@ func _on_area_entered(area_enemy: Area2D) -> void:
 		if(enemyLabel == GlobalVariables.correct_answer):
 			print("Le dio al que era")
 			GlobalVariables.score += 1 
-			GlobalVariables.emit_signal("change_score")	 #Estas deben pasar luego cuando disare y sea correcta
+			GlobalVariables.emit_signal("change_score")	 
 			var enemies = get_tree().get_nodes_in_group("enemy")
 			for enemy in enemies:
 				enemy.queue_free()	
@@ -41,13 +40,19 @@ func _on_area_entered(area_enemy: Area2D) -> void:
 			var numR = RandomNumberGenerator.new()
 			var num1 = numR.randi_range(1, 10)
 			var num2 = numR.randi_range(1, 10)
-			GlobalVariables.crearRandomOperation(num1, num2)
+			GlobalVariables.crearRandomOperation(num1,num2)
 			GlobalVariables.crearDosNumerosRandom()
 			GlobalVariables.emit_signal("change_operation")
 		else:
 			bullet.queue_free()
 			area_enemy.queue_free() 
-			print("Perrito tan bobo")
+			
+func randomNumOperation():
+	var numR = RandomNumberGenerator.new()
+	var num1 = numR.randi_range(1,10)
+	var num2 = numR.randi_range(1,10)
+	return [num1,num2]
+	
 
 		
 			

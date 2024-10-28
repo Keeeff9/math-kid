@@ -24,8 +24,11 @@ func crearRandomOperation(num1:int,num2:int)-> void:
 func crearDosNumerosRandom()-> void:
 	incorret_answer.clear()  # Reiniciar el array cada vez que generes nuevos números
 	var numRandom = RandomNumberGenerator.new()
-	var num1Random = numRandom.randi_range(-20,50)
-	var num2Random = numRandom.randi_range(-20,50)
+	var numAleatorioRandom = numRandom.randi_range(1,5)
+	var num1Random = correct_answer + numAleatorioRandom
+	var num2Random =  correct_answer - numAleatorioRandom
+	
+	
 	while true:	
 		if num1Random != num2Random and num1Random != correct_answer and num2Random != correct_answer:
 			incorret_answer.append(num1Random)

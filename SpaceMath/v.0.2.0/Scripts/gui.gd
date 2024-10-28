@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var life_label_count: Label = $Control/MarginContainer/VBoxContainer_Life/LifeLabelCount
+@onready var life_label_count: Label = $Control/Label_Lifes/LifeLabelCount
 @onready var score_label: Label = $Control/MarginContainer/VBoxContainer_Score/ScoreLabel
 @onready var question_label: Label = $Control/MarginContainer/VBoxContainer_Question/QuestionLabel
 

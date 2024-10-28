@@ -3,4 +3,7 @@ se creo interfaz de usuario para iniciar y cuando se termine el juego poder ingr
 ya el enemigo se destruye al interactuar con el disparo y se crean random operaciones
 
 
-Hola estoy la ramaPrueba
+
+Arreglos:
+-1 vida cuando choque con el enemigo
+
