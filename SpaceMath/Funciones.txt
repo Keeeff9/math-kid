@@ -6,5 +6,7 @@ ya el enemigo se destruye al interactuar con el disparo y se crean random operac
 
 Arreglos:
  . -1 vida cuando choque con el enemigo
- . Random mas cerca al numero de respuesta correcta 
+ . Random mas cerca al numero de respuesta correcta
+ . Se creo un label para el menu con una modificacion al momento de perder
+ 
 
