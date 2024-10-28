@@ -22,7 +22,7 @@ func crearRandomOperation(num1:int,num2:int)-> void:
 	correct_answer = num1 + num2
 
 func crearDosNumerosRandom()-> void:
-	incorret_answer.clear()  # Reiniciar el array cada vez que generes nuevos números
+	incorret_answer.clear()  
 	var numRandom = RandomNumberGenerator.new()
 	var numAleatorioRandom = numRandom.randi_range(1,5)
 	var num1Random = correct_answer + numAleatorioRandom
