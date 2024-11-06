@@ -24,7 +24,7 @@ func disparo() -> void:
 	
 	conteo += 1
 	if conteo % 5 == 0:  # Mensaje cada 5 disparos
-		print("5 disparos realizados")
+		print("5 shoots")
 
 # Función para gestionar el movimiento del personaje
 func movimientopersonaje(delta: float) -> void:
@@ -51,4 +51,4 @@ func actualizar_animacion(moving: bool, flip: bool = false) -> void:
 # Detecta colisiones con objetos en el grupo "Colisiones"
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Colisiones"):
-		print("Colisión detectada con:", body.name)
+		print("Collision with:", body.name)

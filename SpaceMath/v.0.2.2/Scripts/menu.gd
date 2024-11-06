@@ -19,13 +19,13 @@ func _process(delta: float) -> void:
 #Boton Salir
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
-	print("Gracias por jugar")
+	print("played")
 
 #Boton Comenzar 
 func _on_start_button_pressed() -> void:
 	GlobalVariables.global_Resetlife()
 	get_tree().change_scene_to_file("res://Main_World/world.tscn")
-	print("Comenzate a jugar")
+	print("Game started")
 	
 func lifeCero_Gameover():
 	title.text = "Game Over"

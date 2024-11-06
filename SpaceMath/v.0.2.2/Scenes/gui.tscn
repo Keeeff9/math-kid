@@ -482,8 +482,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/VBoxContainer_Question"]
-position = Vector2(40.5, 33)
-scale = Vector2(2.295, 1.70875)
+position = Vector2(40.25, 28.4375)
+scale = Vector2(2.3025, 1.98438)
 sprite_frames = SubResource("SpriteFrames_xuger")
 autoplay = "default"
 frame_progress = 0.979281

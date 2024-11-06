@@ -4,19 +4,20 @@
 [ext_resource type="SpriteFrames" uid="uid://f4ea3wc82yqb" path="res://Animations/mainplayerAnimations.tres" id="2_88oi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chtxl"]
-size = Vector2(10, 18.75)
+size = Vector2(17, 19.4167)
 
 [node name="Jugador" type="CharacterBody2D" groups=["player_group"]]
 position = Vector2(592, 477)
 script = ExtResource("1_mex3r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+position = Vector2(-8.00002, -7.5)
+scale = Vector2(4, 3.625)
 sprite_frames = ExtResource("2_88oi5")
 animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.875)
+position = Vector2(-8.5, -6.875)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_chtxl")

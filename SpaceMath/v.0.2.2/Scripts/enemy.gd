@@ -24,7 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 		GlobalVariables.emit_signal("change_life")
 		if(GlobalVariables.lifes <= 0):
 			get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-		print("game over")
+		print("End")
 		queue_free()
 
 
