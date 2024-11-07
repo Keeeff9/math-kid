@@ -5,8 +5,12 @@ ya el enemigo se destruye al interactuar con el disparo y se crean random operac
 
 
 Arreglos:
+v.0.2.0
  . -1 vida cuando choque con el enemigo
  . Random mas cerca al numero de respuesta correcta
  . Se creo un label para el menu con una modificacion al momento de perder
- 
 
+v .0.2.2:
+ . Al momento de presionar TAB se genera un menu de Pausa
+ . Primera codificacion de "Crear enemigos vacios en posiciones vacias" -> Script de world: func create_enemySinRespuesta
+ . Primera codificacion de "posicoines fijas pero aleatorias para las respuestas" -> Script de world: func create_enemy

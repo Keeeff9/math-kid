@@ -24,10 +24,9 @@ func crearRandomOperation(num1:int,num2:int)-> void:
 func crearDosNumerosRandom()-> void:
 	incorret_answer.clear()  
 	var numRandom = RandomNumberGenerator.new()
-	var numAleatorioRandom = numRandom.randi_range(1,5)
+	var numAleatorioRandom = numRandom.randi_range(1,4)
 	var num1Random = correct_answer + numAleatorioRandom
 	var num2Random =  correct_answer - numAleatorioRandom
-	
 	
 	while true:	
 		if num1Random != num2Random and num1Random != correct_answer and num2Random != correct_answer:

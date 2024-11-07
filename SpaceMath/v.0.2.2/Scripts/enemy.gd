@@ -44,11 +44,3 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 		#
 		
 			
-#funciones del label
-#func crearnumrandom():
-	#numeroRandom = RandomNumberGenerator.new()
-	#var num1 = numeroRandom.randi_range(1,10)
-	#var num2 = numeroRandom.randi_range(1,10)
-	#var respuestaRandom = num1 + num2
-	#respuesta.text = str(num1," + ",num2)
-	#print("La respuesta es:", respuestaRandom)

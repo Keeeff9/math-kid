@@ -21,9 +21,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 
-#func _on_body_entered(body: Node2D) -> void:
-	#print(body.name == "enemy")
-
 
 func _on_area_entered(area_enemy: Area2D) -> void:
 	if area_enemy.is_in_group("enemy"):
@@ -47,11 +44,7 @@ func _on_area_entered(area_enemy: Area2D) -> void:
 			bullet.queue_free()
 			area_enemy.queue_free() 
 			
-func randomNumOperation():
-	var numR = RandomNumberGenerator.new()
-	var num1 = numR.randi_range(1,10)
-	var num2 = numR.randi_range(1,10)
-	return [num1,num2]
+
 	
 
 		

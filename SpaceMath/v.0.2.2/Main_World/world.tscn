@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b55gi2f4g553y"]
+[gd_scene load_steps=9 format=3 uid="uid://b55gi2f4g553y"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_86qvf"]
 [ext_resource type="PackedScene" uid="uid://cm7m8cxvjlixu" path="res://Scenes/enemy.tscn" id="2_8x5nb"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://83t1p7bbqvfx" path="res://Scenes/player.tscn" id="4_glumr"]
 [ext_resource type="PackedScene" uid="uid://dndkq82gsvscg" path="res://Scenes/collision.tscn" id="5_y0hwq"]
 [ext_resource type="PackedScene" uid="uid://g23050u7d6na" path="res://Scenes/gui.tscn" id="7_u4wrg"]
-[ext_resource type="PackedScene" uid="uid://1ywt8pegwruk" path="res://Scenes/EmptyPos.tscn" id="8_2y3o6"]
+[ext_resource type="PackedScene" uid="uid://1ywt8pegwruk" path="res://Scenes/EnemyPos.tscn" id="8_2y3o6"]
+[ext_resource type="PackedScene" uid="uid://8oxns2yfh5i7" path="res://Scenes/menu_pausa.tscn" id="8_uhaoi"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_86qvf")
@@ -42,13 +43,27 @@ autostart = true
 [node name="PositionEnemy" type="Node" parent="."]
 
 [node name="Enemy1" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(146, 28)
+position = Vector2(142, 41)
 
 [node name="Enemy2" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(558, 35)
+position = Vector2(508, 45)
 
 [node name="Enemy3" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(1008, 54)
+position = Vector2(1020, 54)
+
+[node name="Enemy4" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
+position = Vector2(868, 54)
+
+[node name="Enemy5" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
+position = Vector2(700, 49)
+
+[node name="Enemy6" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
+position = Vector2(302, 48)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="timeout" from="Parallax2D/Timer" to="." method="_on_timer_timeout"]

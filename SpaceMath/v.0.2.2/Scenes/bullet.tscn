@@ -45,7 +45,9 @@ size = Vector2(21, 27)
 [node name="Node2D" type="Node2D"]
 
 [node name="Bullet" type="Area2D" parent="."]
+position = Vector2(-9, -41)
 script = ExtResource("1_2fa23")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bullet"]
 texture_filter = 1
