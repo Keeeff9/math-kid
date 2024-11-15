@@ -2,18 +2,28 @@ extends Node
 
 @onready var http_request = $HTTPRequest
 @onready var grid_container = $GridContainer  # Asegúrate de tener un GridContainer en la escena
-@onready var name_input = $NameInput         # Asegúrate de tener un LineEdit para el nombre
-@onready var phone_input = $PhoneInput        # Asegúrate de tener un LineEdit para el teléfono
-@onready var email_input = $EmailInput        # Asegúrate de tener un LineEdit para el correo electrónico
+@onready var userName = $UserName         # Asegúrate de tener un LineEdit para el nombre
+@onready var max_score = $Max_score        # Asegúrate de tener un LineEdit para el teléfono
 @onready var button = $Button
+@onready var userNamePlay = $UserNamePlay
 
-var url = "http://localhost/apiphpserver/index.php"  # Cambia esta URL según tu necesidad
+var url = "http://localhost/apiphpserver/game.php"  # Cambia esta URL según tu necesidad
 var is_post_request = false  # Variable para distinguir entre solicitudes GET y POST
 
 func _ready() -> void:
-	http_request.connect("request_completed", Callable(self, "_on_http_request_request_completed"))
+	if not http_request.is_connected("request_completed", Callable(self, "_on_http_request_request_completed")):
+		http_request.connect("request_completed", Callable(self, "_on_http_request_request_completed"))
 	load_data()  # Solicitar datos al iniciar
-	button.connect("pressed", Callable(self, "_on_button_pressed"))  # Conectar el botón al método
+	if not button.is_connected("pressed", Callable(self, "_on_button_pressed")):
+		button.connect("pressed", Callable(self, "_on_button_pressed"))  # Conectar el botón al método
+
+	var key = "userNameStg"
+	var value = read_from_local_storage(key)
+	userNamePlay.text = value
+	if value:
+		print("Valor leído del localStorage:", value)
+	else:
+		print("No se encontró el dato en el localStorage")
 
 func load_data() -> void:
 	is_post_request = false
@@ -40,20 +50,18 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 				child.queue_free()  # Elimina cada nodo hijo
 
 			# Definir cuántas columnas habrá
-			grid_container.columns = 3  # Cambia este número según el número de columnas que desees
+			grid_container.columns = 2  # Cambia este número según el número de columnas que desees
 
 			# Añadir encabezados de columna
-			add_header("Name")
-			add_header("Phone")
-			add_header("Email")
+			add_header("userName")
+			add_header("max_score")
 
 			# Iterar sobre cada diccionario en la lista
 			for entry in data:
 				if entry is Dictionary:  # Verificamos que cada entrada sea un Dictionary
 					# Agregar los valores a las columnas
-					add_value(entry.get("name", "N/A"))
-					add_value(entry.get("phone", "N/A"))
-					add_value(entry.get("email", "N/A"))
+					add_value(entry.get("userName", "N/A"))
+					add_value(str(entry.get("max_score", "N/A")))
 				else:
 					print("Entrada no es un Dictionary.")
 		else:
@@ -84,10 +92,8 @@ func add_value(text: String) -> void:
 # Función para guardar un nuevo registro
 func save_data() -> void:
 	var data = {
-		"name": name_input.text,
-		"phone": phone_input.text,
-		"email": email_input.text,
-		"image": "NoImage.webp"  # O algún valor predeterminado
+		"userName": userName.text,
+		"score": max_score.text,
 	}
 	
 	var json_data = JSON.stringify(data)  # Convierte el diccionario a JSON
@@ -101,3 +107,15 @@ func save_data() -> void:
 	var err = http_request.request(url + "?table=contacto", headers, HTTPClient.METHOD_POST, body)
 	if err != OK:
 		print("Error al realizar la solicitud:", err)  # Manejar el error si la solicitud falla
+
+# Define una función para leer un dato del localStorage
+func read_from_local_storage(key: String) -> String:
+	if Engine.has_singleton("JavaScriptBridge"):
+		var script = "localStorage.getItem('" + key + "')"
+		var result = JavaScriptBridge.eval(script)
+		if result == null:
+			return ""
+		return result
+	else:
+		print("JavaScript singleton not available")
+		return ""
