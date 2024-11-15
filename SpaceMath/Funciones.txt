@@ -14,3 +14,4 @@ v .0.2.2:
  . Al momento de presionar TAB se genera un menu de Pausa
  . Primera codificacion de "Crear enemigos vacios en posiciones vacias" -> Script de world: func create_enemySinRespuesta
  . Primera codificacion de "posicoines fijas pero aleatorias para las respuestas" -> Script de world: func create_enemy
+ . Nivel Infinito con operaciones de Suma, resta, multiplicacion

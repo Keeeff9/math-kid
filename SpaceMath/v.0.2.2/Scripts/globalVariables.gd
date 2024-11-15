@@ -17,9 +17,27 @@ func _ready() -> void:
 func global_Resetlife():
 	lifes = 3
 
-func crearRandomOperation(num1:int,num2:int)-> void:
-	operation = (str(num1) + " + " + str(num2))
-	correct_answer = num1 + num2
+
+
+func crearRandomOperation(num1: int, num2: int) -> void:
+	var num = RandomNumberGenerator.new()
+	var operationCase = num.randi_range(1, 3)
+	var operator = ""	
+	match operationCase:
+		1:
+			operator = "+"
+			correct_answer = num1 + num2
+		2:
+			operator = "-"
+			correct_answer = num1 - num2
+		3:
+			operator = "*"
+			correct_answer = num1 * num2
+
+
+	print("Operador seleccionado: ", operator)
+	operation = (str(num1) + str(operator) + str(num2))
+	
 
 func crearDosNumerosRandom()-> void:
 	incorret_answer.clear()  
