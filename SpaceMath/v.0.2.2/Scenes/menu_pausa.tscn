@@ -444,22 +444,23 @@ script = ExtResource("1_6e7l0")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(577, 330.5)
-scale = Vector2(2.23828, 1.28711)
+position = Vector2(369.5, 638.5)
+scale = Vector2(1.42773, 2.49023)
 texture = ExtResource("2_ri8mt")
 
 [node name="Planet" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(596, 433)
+position = Vector2(392, 773)
 scale = Vector2(3.67917, 2.53333)
 sprite_frames = SubResource("SpriteFrames_w531m")
 autoplay = "default"
 
 [node name="Title" type="Label" parent="."]
-offset_left = 491.0
-offset_top = 214.0
-offset_right = 679.0
-offset_bottom = 287.0
+layout_mode = 0
+offset_left = 303.0
+offset_top = 514.0
+offset_right = 491.0
+offset_bottom = 625.0
 theme_override_fonts/font = ExtResource("4_24mp2")
 text = "PAUSED
 

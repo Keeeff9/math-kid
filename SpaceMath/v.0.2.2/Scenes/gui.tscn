@@ -467,11 +467,12 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer_Score" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 4
 
 [node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer_Score"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 6
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_mlilq")
 text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_ebfd4")
@@ -499,10 +500,10 @@ label_settings = SubResource("LabelSettings_ebfd4")
 [node name="Label_Lifes" type="Node" parent="Control"]
 
 [node name="LifeLabelCount" type="Label" parent="Control/Label_Lifes"]
-offset_left = 133.0
-offset_top = 611.0
-offset_right = 155.0
-offset_bottom = 648.0
+offset_left = 138.0
+offset_top = 631.0
+offset_right = 160.0
+offset_bottom = 668.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
@@ -510,12 +511,12 @@ text = "0"
 label_settings = SubResource("LabelSettings_xg7ms")
 
 [node name="LifeLabelText" type="Label" parent="Control/Label_Lifes"]
-offset_left = 14.0
-offset_top = 610.0
-offset_right = 121.0
-offset_bottom = 647.0
+offset_left = 9.0
+offset_top = 631.0
+offset_right = 116.0
+offset_bottom = 668.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "LIFES"
+text = "LIFES:"
 label_settings = SubResource("LabelSettings_xg7ms")

@@ -18,8 +18,8 @@ scroll_offset = Vector2(-619, -582)
 repeat_size = Vector2(0, 700)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(1196, 322)
-scale = Vector2(2.36035, 1.38711)
+position = Vector2(1199, -0.999878)
+scale = Vector2(2.94922, 8.20898)
 texture = ExtResource("3_pf7x1")
 
 [node name="Timer" type="Timer" parent="Parallax2D"]
@@ -29,10 +29,10 @@ autostart = true
 [node name="colisiones" type="Node" parent="."]
 
 [node name="Colisiones" parent="colisiones" instance=ExtResource("5_y0hwq")]
-position = Vector2(0, 2)
+position = Vector2(-4, 303)
 
 [node name="Jugador" parent="." instance=ExtResource("4_glumr")]
-position = Vector2(595, 537)
+position = Vector2(374, 1049)
 
 [node name="TimerEnemy" type="Timer" parent="."]
 wait_time = 3.5
@@ -43,26 +43,30 @@ autostart = true
 [node name="PositionEnemy" type="Node" parent="."]
 
 [node name="Enemy1" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(142, 41)
+position = Vector2(70, 45)
 
 [node name="Enemy2" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(508, 45)
+position = Vector2(180, 50)
 
 [node name="Enemy3" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(1020, 54)
+position = Vector2(293, 57)
 
 [node name="Enemy4" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(868, 54)
+position = Vector2(447, 53)
 
 [node name="Enemy5" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(700, 49)
+position = Vector2(648, 62)
 
 [node name="Enemy6" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(302, 48)
+position = Vector2(545, 40)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
+offset_left = -7.0
+offset_top = -3.0
+offset_right = -7.0
+offset_bottom = -3.0
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="timeout" from="Parallax2D/Timer" to="." method="_on_timer_timeout"]

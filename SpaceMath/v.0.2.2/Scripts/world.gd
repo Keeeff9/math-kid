@@ -29,8 +29,8 @@ func create_enemySinRespuesta():
 	var enemy2Solo = enemy_scene.instantiate()
 	
 	var randomPosition = RandomNumberGenerator.new()
-	var positionX = randomPosition.randi_range(200,650)
-	var position2X = randomPosition.randi_range(650,1100)
+	var positionX = randomPosition.randi_range( 50,340)
+	var position2X = randomPosition.randi_range(360,700)
 	
 	while positionX == position2X:
 		position2X = randomPosition.randi_range(100,1300)

@@ -1,5 +1,5 @@
 extends Area2D
-var speed := 300
+var speed := 400
 @onready var bullet: Area2D = $"."
 @onready var animated_sprite: AnimatedSprite2D =  $AnimatedSprite2D
 
