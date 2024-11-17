@@ -452,10 +452,10 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.000868056
-anchor_top = 0.00617284
-anchor_right = 1.00087
-anchor_bottom = 0.998457
+anchor_left = 0.000892857
+anchor_top = -0.00634702
+anchor_right = 1.00089
+anchor_bottom = 0.985937
 offset_left = -8.625
 offset_top = 56.0988
 offset_right = -8.62506
@@ -478,30 +478,13 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SCORE: 0"
+text = "SCORE 0"
 label_settings = SubResource("LabelSettings_ebfd4")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer_Question" type="HBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -523,6 +506,7 @@ text = "10+10
 label_settings = SubResource("LabelSettings_ebfd4")
 horizontal_alignment = 1
 vertical_alignment = 1
+justification_flags = 161
 uppercase = true
 
 [node name="Label_Lifes" type="Node" parent="Control"]

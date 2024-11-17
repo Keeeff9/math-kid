@@ -9,7 +9,6 @@ extends Node2D
 @onready var pos5 = $PositionEnemy/Enemy5
 @onready var pos6 = $PositionEnemy/Enemy6
 
-#*/
 
 var velocity = 1.0
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +16,7 @@ func _ready() -> void:
 	print("Posisicion", pos1.position.y)
 	GlobalVariables.score = 0
 	create_enemy()
-	create_enemySinRespuesta()
+	#create_enemySinRespuesta()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	moveBackground()
@@ -25,21 +24,7 @@ func _process(delta: float) -> void:
 func moveBackground():
 	$Parallax2D.scroll_offset.y +=velocity
 	
-func create_enemySinRespuesta():
-	var enemy1Solo = enemy_scene.instantiate()
-	var enemy2Solo = enemy_scene.instantiate()
-	
-	var randomPosition = RandomNumberGenerator.new()
-	var positionX = randomPosition.randi_range( 50,340)
-	var position2X = randomPosition.randi_range(360,700)
-	
-	while positionX == position2X:
-		position2X = randomPosition.randi_range(100,1300)
-		break
-	enemy1Solo.position = Vector2(positionX,+400)
-	enemy2Solo.position = Vector2(position2X,+450)
-	add_child(enemy1Solo)
-	add_child(enemy2Solo)
+
 #Generar el asteroide y posicion random 
 
 
@@ -79,4 +64,4 @@ func create_enemy():
 #crear el enemigo cada cierto tiempo 
 func _on_timer_enemy_timeout() -> void:
 	create_enemy()
-	create_enemySinRespuesta()
+	#create_enemySinRespuesta()

@@ -465,7 +465,7 @@ position = Vector2(-4, 303)
 position = Vector2(374, 1049)
 
 [node name="TimerEnemy" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 5.5
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource("7_u4wrg")]
@@ -473,26 +473,27 @@ autostart = true
 [node name="PositionEnemy" type="Node" parent="."]
 
 [node name="Enemy1" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(63, 303)
+position = Vector2(72, 248)
 
 [node name="Enemy2" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(174, 303)
+position = Vector2(176, 248)
 
 [node name="Enemy3" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(290, 303)
+position = Vector2(288, 248)
 
 [node name="Enemy4" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(408, 303)
+position = Vector2(408, 248)
 
 [node name="Enemy5" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(636, 303)
+position = Vector2(640, 248)
 
 [node name="Enemy6" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(522, 303)
+position = Vector2(528, 248)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
+visible = false
 offset_left = -7.0
 offset_top = -3.0
 offset_right = -7.0
