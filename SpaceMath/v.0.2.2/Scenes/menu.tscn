@@ -446,19 +446,20 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_goijd")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(361, 633.25)
-scale = Vector2(1.41016, 2.49121)
+position = Vector2(352, 632)
+scale = Vector2(1.38, 2.471)
 texture = ExtResource("2_scg87")
 
 [node name="Planet" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(406, 1110)
+position = Vector2(352, 1112)
 scale = Vector2(3.67917, 2.53333)
 sprite_frames = SubResource("SpriteFrames_hsjop")
 autoplay = "default"
@@ -476,34 +477,6 @@ theme_override_fonts/font = ExtResource("3_gg6fb")
 label_settings = SubResource("LabelSettings_h1d4j")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -356.0
-offset_right = 60.0
-offset_bottom = 109.0
-grow_horizontal = 2
-scale = Vector2(1.7, 1.7)
-alignment = 1
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gg6fb")
-text = "SPACEMATH
-"
-label_settings = SubResource("LabelSettings_7g4ky")
-horizontal_alignment = 1
-
-[node name="Description" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gg6fb")
-text = "INICIA TU AVENTURA"
-label_settings = SubResource("LabelSettings_h1d4j")
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -511,16 +484,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -14.5
-offset_right = 65.0
-offset_bottom = 14.5
+offset_left = -100.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.7, 1.7)
 size_flags_horizontal = 4
 
 [node name="StartButton" type="Button" parent="HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gg6fb")
 text = "START"
@@ -564,6 +538,7 @@ offset_right = -158.938
 offset_bottom = 90.0
 
 [node name="GridContainer" type="GridContainer" parent="DataBase"]
+visible = false
 offset_left = 920.0
 offset_top = 30.0
 offset_right = 955.0
@@ -576,10 +551,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -157.0
-offset_right = 201.0
-offset_bottom = -56.0
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 147.0
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_gg6fb")
@@ -590,11 +565,41 @@ vertical_alignment = 1
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(407, 745)
-scale = Vector2(3, 3)
+position = Vector2(352, 928)
+scale = Vector2(3.1, 3.1)
 sprite_frames = ExtResource("4_fk6li")
 animation = &"menu"
 autoplay = "menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -362.0
+offset_top = 264.0
+offset_right = 68.0
+offset_bottom = 373.0
+grow_horizontal = 2
+scale = Vector2(1.7, 1.7)
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.201835, 0.426837, 0.985515, 1)
+theme_override_fonts/font = ExtResource("3_gg6fb")
+text = " SPACEMATH
+"
+label_settings = SubResource("LabelSettings_7g4ky")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gg6fb")
+text = "INICIA TU AVENTURA"
+label_settings = SubResource("LabelSettings_h1d4j")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

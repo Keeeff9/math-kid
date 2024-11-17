@@ -456,7 +456,10 @@ anchor_left = 0.000868056
 anchor_top = 0.00617284
 anchor_right = 1.00087
 anchor_bottom = 0.998457
-offset_bottom = -6.10352e-05
+offset_left = -8.625
+offset_top = 56.0988
+offset_right = -8.62506
+offset_bottom = 56.0986
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 13
@@ -465,6 +468,7 @@ theme_override_constants/margin_right = 13
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer_Score" type="HBoxContainer" parent="Control/MarginContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -474,17 +478,38 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "SCORE: 0"
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: 0"
 label_settings = SubResource("LabelSettings_ebfd4")
+vertical_alignment = 1
 
 [node name="VBoxContainer_Question" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/VBoxContainer_Question"]
-position = Vector2(40.25, 28.4375)
-scale = Vector2(2.3025, 1.98438)
+position = Vector2(45, 28.4375)
+scale = Vector2(2.56, 1.98438)
 sprite_frames = SubResource("SpriteFrames_xuger")
 autoplay = "default"
 frame_progress = 0.979281
@@ -493,17 +518,20 @@ frame_progress = 0.979281
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "9 + 9
+text = "10+10
 "
 label_settings = SubResource("LabelSettings_ebfd4")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="Label_Lifes" type="Node" parent="Control"]
 
 [node name="LifeLabelCount" type="Label" parent="Control/Label_Lifes"]
-offset_left = 138.0
-offset_top = 631.0
-offset_right = 160.0
-offset_bottom = 668.0
+offset_left = 120.0
+offset_top = 1056.0
+offset_right = 296.0
+offset_bottom = 1493.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
@@ -511,12 +539,21 @@ text = "0"
 label_settings = SubResource("LabelSettings_xg7ms")
 
 [node name="LifeLabelText" type="Label" parent="Control/Label_Lifes"]
-offset_left = 9.0
-offset_top = 631.0
+offset_top = 656.0
 offset_right = 116.0
-offset_bottom = 668.0
+offset_bottom = 1093.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "LIFES:"
+text = "
+
+
+
+
+
+
+
+
+
+LIFES:"
 label_settings = SubResource("LabelSettings_xg7ms")
