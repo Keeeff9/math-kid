@@ -14,6 +14,7 @@ extends Node2D
 var velocity = 1.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Posisicion", pos1.position.y)
 	GlobalVariables.score = 0
 	create_enemy()
 	create_enemySinRespuesta()
@@ -35,8 +36,8 @@ func create_enemySinRespuesta():
 	while positionX == position2X:
 		position2X = randomPosition.randi_range(100,1300)
 		break
-	enemy1Solo.position = Vector2(positionX,+200)
-	enemy2Solo.position = Vector2(position2X,+150)
+	enemy1Solo.position = Vector2(positionX,+400)
+	enemy2Solo.position = Vector2(position2X,+450)
 	add_child(enemy1Solo)
 	add_child(enemy2Solo)
 #Generar el asteroide y posicion random 
@@ -52,9 +53,9 @@ func create_enemy():
 	var enemy3 = enemy_scene.instantiate()
 
 	#Obtener la posicion fija para los tres asteroides
-	enemy1.position = Vector2(position_select[0].position.x,-10)
-	enemy2.position = Vector2(position_select[1].position.x,-10)
-	enemy3.position = Vector2(position_select[2].position.x,-10)
+	enemy1.position = Vector2(position_select[0].position.x,position_select[0].position.y)
+	enemy2.position = Vector2(position_select[1].position.x,position_select[1].position.y)
+	enemy3.position = Vector2(position_select[2].position.x,position_select[2].position.y)
 	print("Se elegieron las posiciones:" , position_select[0].position , position_select[1] , position_select[2])
 	add_child(enemy1)
 	add_child(enemy2)

@@ -467,10 +467,10 @@ frame_progress = 0.91688
 
 [node name="DescriptionReiniciar" type="Label" parent="."]
 layout_mode = 2
-offset_left = 76.0
-offset_top = 318.0
-offset_right = 647.0
-offset_bottom = 422.0
+offset_left = 86.0
+offset_top = 723.0
+offset_right = 657.0
+offset_bottom = 827.0
 size_flags_horizontal = 0
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("3_gg6fb")

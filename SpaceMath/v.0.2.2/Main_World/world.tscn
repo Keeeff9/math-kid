@@ -473,25 +473,24 @@ autostart = true
 [node name="PositionEnemy" type="Node" parent="."]
 
 [node name="Enemy1" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(64, 216)
+position = Vector2(63, 303)
 
 [node name="Enemy2" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(256, 208)
+position = Vector2(174, 303)
 
 [node name="Enemy3" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(384, 208)
+position = Vector2(290, 303)
 
 [node name="Enemy4" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(512, 208)
+position = Vector2(408, 303)
 
 [node name="Enemy5" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(648, 208)
+position = Vector2(636, 303)
 
 [node name="Enemy6" parent="PositionEnemy" instance=ExtResource("8_2y3o6")]
-position = Vector2(168, 288)
+position = Vector2(522, 303)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
 offset_left = -7.0
