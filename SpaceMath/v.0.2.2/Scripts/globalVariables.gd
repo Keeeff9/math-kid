@@ -11,6 +11,8 @@ var incorret_answer = []
 var operation := ""
 #
 
+var userName := "Invitado"
+
 func _ready() -> void:
 	crearDosNumerosRandom()
 

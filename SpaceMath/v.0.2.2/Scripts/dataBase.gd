@@ -2,9 +2,7 @@ extends Node
 
 @onready var http_request = $HTTPRequest
 @onready var grid_container = $GridContainer  # Asegúrate de tener un GridContainer en la escena
-@onready var userName = $UserName         # Asegúrate de tener un LineEdit para el nombre
-@onready var max_score = $Max_score        # Asegúrate de tener un LineEdit para el teléfono
-@onready var button = $Button
+@onready var button = $"../HBoxContainer/Button"
 @onready var userNamePlay = $UserNamePlay
 
 var url = "http://localhost/apiphpserver/game.php"  # Cambia esta URL según tu necesidad
@@ -13,26 +11,56 @@ var is_post_request = false  # Variable para distinguir entre solicitudes GET y 
 func _ready() -> void:
 	if not http_request.is_connected("request_completed", Callable(self, "_on_http_request_request_completed")):
 		http_request.connect("request_completed", Callable(self, "_on_http_request_request_completed"))
-	load_data()  # Solicitar datos al iniciar
+	# load_data()  # Solicitar datos al iniciar
 	if not button.is_connected("pressed", Callable(self, "_on_button_pressed")):
 		button.connect("pressed", Callable(self, "_on_button_pressed"))  # Conectar el botón al método
 
 	var key = "userNameStg"
 	var value = read_from_local_storage(key)
 	userNamePlay.text = value
+	GlobalVariables.userName = value
 	if value:
 		print("Valor leído del localStorage:", value)
 	else:
 		print("No se encontró el dato en el localStorage")
 
+var is_show_rating = false
+func _on_button_pressed() -> void:
+	# save_data()  # Llama a la función para guardar datos
+	if is_show_rating:
+		grid_container.visible = false
+		is_show_rating = false
+	else:
+		load_data() # Solicitar datos al presionar el botón
+		grid_container.visible = true
+		is_show_rating = true
+
 func load_data() -> void:
 	is_post_request = false
 	http_request.request(url)  # Realiza la solicitud GET para obtener los datos
 
-func _on_button_pressed() -> void:
-	save_data()  # Llama a la función para guardar datos
+# Función para guardar un nuevo registro
+func save_data() -> void:
+	var data = {
+		"userName": GlobalVariables.userName,
+		"score": GlobalVariables.score,
+	}
 
-func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	is_post_request = true
+	
+	var json_data = JSON.stringify(data)  # Convierte el diccionario a JSON
+	var body = json_data  # El cuerpo de la solicitud debe ser una cadena JSON
+
+	var headers = PackedStringArray()
+	headers.append("Content-Type: application/json")
+
+	# Realiza la solicitud POST
+	
+	var err = http_request.request(url + "?table=contacto", headers, HTTPClient.METHOD_POST, body)
+	if err != OK:
+		print("Error al realizar la solicitud:", err)  # Manejar el error si la solicitud falla
+
+func _on_http_request_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	print("Response code:", response_code)
 	print("Response body:", body.get_string_from_utf8())
 
@@ -40,7 +68,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		var json = JSON.new()
 		var error_code = json.parse(body.get_string_from_utf8())
 		if error_code != OK:
-			print("Error al parsear JSON")
+			print("Error al parsear JSON:", error_code)
 			return
 
 		var data = json.data  # Acceder al resultado del análisis JSON
@@ -53,8 +81,8 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			grid_container.columns = 2  # Cambia este número según el número de columnas que desees
 
 			# Añadir encabezados de columna
-			add_header("userName")
-			add_header("max_score")
+			add_header("User Name")
+			add_header("Max Score")
 
 			# Iterar sobre cada diccionario en la lista
 			for entry in data:
@@ -67,11 +95,15 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		else:
 			print("Error al parsear JSON. Respuesta no es un Array.")
 	else:
-		print("Error en la solicitud:", response_code)
+		match response_code:
+			HTTPClient.STATUS_CANT_CONNECT:
+				print("Error: No se pudo conectar al servidor.")
+			_:
+				print("Error desconocido:", response_code)
 
 	# Si la solicitud POST fue exitosa, recargar los datos
-	if is_post_request:
-		load_data()
+	# if is_post_request:
+	# 	load_data()
 
 # Función para añadir un encabezado de columna
 func add_header(text: String) -> void:
@@ -88,25 +120,6 @@ func add_value(text: String) -> void:
 	value_label.add_theme_stylebox_override("normal", StyleBoxFlat.new())  # Estilo opcional
 	value_label.set("rect_min_size", Vector2(100, 30))  # Establecer un tamaño mínimo
 	grid_container.add_child(value_label)
-
-# Función para guardar un nuevo registro
-func save_data() -> void:
-	var data = {
-		"userName": userName.text,
-		"score": max_score.text,
-	}
-	
-	var json_data = JSON.stringify(data)  # Convierte el diccionario a JSON
-	var body = json_data  # El cuerpo de la solicitud debe ser una cadena JSON
-
-	var headers = PackedStringArray()
-	headers.append("Content-Type: application/json")
-
-	# Realiza la solicitud POST
-	is_post_request = true
-	var err = http_request.request(url + "?table=contacto", headers, HTTPClient.METHOD_POST, body)
-	if err != OK:
-		print("Error al realizar la solicitud:", err)  # Manejar el error si la solicitud falla
 
 # Define una función para leer un dato del localStorage
 func read_from_local_storage(key: String) -> String:
