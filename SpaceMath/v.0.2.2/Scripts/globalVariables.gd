@@ -4,7 +4,7 @@ signal change_life
 signal change_score
 signal change_operation
 
-var enemigos_escena = 3
+var enemigos_escena = 2
 var score := 0
 var lifes := 3
 var correct_answer = 0

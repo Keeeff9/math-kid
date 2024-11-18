@@ -45,9 +45,7 @@ func create_enemy():
 	add_child(enemy1)
 	add_child(enemy2)
 	add_child(enemy3)
-	GlobalVariables.enemigos_escena = 3
-	print("Se comenzo con ", GlobalVariables.enemigos_escena , " Enemigos")
-	
+	GlobalVariables.enemigos_escena = 2
 	
 	
 	#obtner el label Respuesta de enemy

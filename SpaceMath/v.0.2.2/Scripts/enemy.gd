@@ -16,7 +16,6 @@ func _physics_process(delta: float) -> void:
 
 	
 
-# esta funcion tengo que ponerla en jugador para que cuando choque le baje vida 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("player_group")):
 		choque_enemy == true 
@@ -37,14 +36,12 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	
 	if GlobalVariables.enemigos_escena > 0:
 		GlobalVariables.enemigos_escena -= 1
-		if GlobalVariables.enemigos_escena == 2:		
-			print("Quedaron ", GlobalVariables.enemigos_escena , " En este intento ")
+		if GlobalVariables.enemigos_escena == 1:		
 			GlobalVariables.lifes -= 1
 			GlobalVariables.emit_signal("change_life")
 			if GlobalVariables.lifes <= 0:
 				call_deferred("CambiarMenu")
+				print("Holaaaa")
 				
 	queue_free()  # Elimina el nodo del árbol
-
-		
 			

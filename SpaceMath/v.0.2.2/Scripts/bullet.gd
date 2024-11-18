@@ -3,9 +3,6 @@ var speed := 400
 @onready var bullet: Area2D = $"."
 @onready var animated_sprite: AnimatedSprite2D =  $AnimatedSprite2D
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animated_sprite.play("idle") 
@@ -23,14 +20,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_entered(area_enemy: Area2D) -> void:
-	print("Comenzamos con ", GlobalVariables.enemigos_escena , " En esta escena")
 	if area_enemy.is_in_group("enemy"):
 		var enemyLabel = area_enemy.get_node("Respuesta").text.strip_edges().to_int()
 		if(enemyLabel == GlobalVariables.correct_answer):
 			print("Le dio al que era")
-			GlobalVariables.score += 1 
-			GlobalVariables.emit_signal("change_score")	 
-			
+			GlobalVariables.score += 10
+			GlobalVariables.emit_signal("change_score")	 			
 			var enemies = get_tree().get_nodes_in_group("enemy")
 			for enemy in enemies:
 				enemy.queue_free()	
@@ -42,15 +37,20 @@ func _on_area_entered(area_enemy: Area2D) -> void:
 			GlobalVariables.crearDosNumerosRandom()
 			GlobalVariables.emit_signal("change_operation")
 		else:
-			GlobalVariables.enemigos_escena -= 1
-			print("Quedan ", GlobalVariables.enemigos_escena, " Enemigoes  en escena")
-			GlobalVariables.score -= 1
+			if GlobalVariables.score > 0:
+				print("Todavia tiene puntos")
+				GlobalVariables.score -= 5
+			else:
+				GlobalVariables.lifes -= 1
+				GlobalVariables.emit_signal("change_life")
+				if GlobalVariables.lifes == 0:
+					call_deferred("CambiarMenu")
+			
 			GlobalVariables.emit_signal("change_score")
 			bullet.queue_free()
-			area_enemy.queue_free() 
+			area_enemy.queue_free() 	
 			
+func CambiarMenu():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
-	
-
-		
 			
