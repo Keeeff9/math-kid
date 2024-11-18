@@ -41,11 +41,14 @@ func create_enemy():
 	enemy1.position = Vector2(position_select[0].position.x,position_select[0].position.y)
 	enemy2.position = Vector2(position_select[1].position.x,position_select[1].position.y)
 	enemy3.position = Vector2(position_select[2].position.x,position_select[2].position.y)
-	print("Se elegieron las posiciones:" , position_select[0].position , position_select[1] , position_select[2])
+	
 	add_child(enemy1)
 	add_child(enemy2)
 	add_child(enemy3)
-
+	GlobalVariables.enemigos_escena = 3
+	print("Se comenzo con ", GlobalVariables.enemigos_escena , " Enemigos")
+	
+	
 	
 	#obtner el label Respuesta de enemy
 	var enemyLabel1 = enemy1.get_node("Respuesta")

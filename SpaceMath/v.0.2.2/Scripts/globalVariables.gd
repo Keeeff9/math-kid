@@ -4,6 +4,7 @@ signal change_life
 signal change_score
 signal change_operation
 
+var enemigos_escena = 3
 var score := 0
 var lifes := 3
 var correct_answer = 0
@@ -19,8 +20,6 @@ func _ready() -> void:
 func global_Resetlife():
 	lifes = 3
 
-
-
 func crearRandomOperation(num1: int, num2: int) -> void:
 	var num = RandomNumberGenerator.new()
 	var operationCase = num.randi_range(1, 3)
@@ -30,8 +29,13 @@ func crearRandomOperation(num1: int, num2: int) -> void:
 			operator = "+"
 			correct_answer = num1 + num2
 		2:
-			operator = "-"
+			operator = "-"			
+			if num2 > num1:
+				var temp = num1
+				num1 = num2
+				num2 = temp
 			correct_answer = num1 - num2
+			
 		3:
 			operator = "*"
 			correct_answer = num1 * num2
@@ -44,7 +48,7 @@ func crearRandomOperation(num1: int, num2: int) -> void:
 func crearDosNumerosRandom()-> void:
 	incorret_answer.clear()  
 	var numRandom = RandomNumberGenerator.new()
-	var numAleatorioRandom = numRandom.randi_range(1,4)
+	var numAleatorioRandom = numRandom.randi_range(1,3)
 	var num1Random = correct_answer + numAleatorioRandom
 	var num2Random =  correct_answer - numAleatorioRandom
 	

@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cyqv4mi4vcaps" path="res://Assets/mainEnemy.png" id="2_2x6m2"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://Assets/fonts/retro.ttf" id="2_mlilq"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ebfd4"]
-font_size = 28
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl63x"]
 atlas = ExtResource("2_2x6m2")
 region = Rect2(200, 0, 200, 200)
@@ -435,6 +432,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ebfd4"]
+font_size = 28
+
 [sub_resource type="LabelSettings" id="LabelSettings_xg7ms"]
 font_size = 29
 
@@ -466,22 +466,6 @@ theme_override_constants/margin_left = 13
 theme_override_constants/margin_top = 13
 theme_override_constants/margin_right = 13
 metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer_Score" type="HBoxContainer" parent="Control/MarginContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-
-[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/VBoxContainer_Score"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("2_mlilq")
-text = "SCORE 0"
-label_settings = SubResource("LabelSettings_ebfd4")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VBoxContainer_Question" type="HBoxContainer" parent="Control/MarginContainer"]
 custom_minimum_size = Vector2(0, 1)
@@ -523,21 +507,34 @@ text = "0"
 label_settings = SubResource("LabelSettings_xg7ms")
 
 [node name="LifeLabelText" type="Label" parent="Control/Label_Lifes"]
-offset_top = 656.0
-offset_right = 116.0
+offset_left = 3.0
+offset_top = 1056.0
+offset_right = 119.0
 offset_bottom = 1093.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "
-
-
-
-
-
-
-
-
-
-LIFES:"
+text = "LIFES:"
 label_settings = SubResource("LabelSettings_xg7ms")
+
+[node name="Score" type="Node" parent="Control"]
+
+[node name="ScoreLabel" type="Label" parent="Control/Score"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 425.5
+offset_right = -4.0
+offset_bottom = 461.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_mlilq")
+text = "SCORE 0"
+label_settings = SubResource("LabelSettings_ebfd4")
+horizontal_alignment = 1
+vertical_alignment = 1

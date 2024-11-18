@@ -493,7 +493,6 @@ position = Vector2(528, 248)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
-visible = false
 offset_left = -7.0
 offset_top = -3.0
 offset_right = -7.0
