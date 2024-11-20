@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8oxns2yfh5i7"]
+[gd_scene load_steps=8 format=3 uid="uid://8oxns2yfh5i7"]
 
 [ext_resource type="Script" path="res://Scripts/menu_pausa.gd" id="1_6e7l0"]
 [ext_resource type="Texture2D" uid="uid://kfxu2dg0ar3g" path="res://Assets/background.png" id="2_ri8mt"]
@@ -8,6 +8,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_dotdj"]
 font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_ntiai"]
+font = ExtResource("4_24mp2")
+font_size = 24
 
 [node name="menuPausa" type="Control"]
 process_mode = 3
@@ -45,3 +49,12 @@ horizontal_alignment = 1
 stream = ExtResource("5_8c2dc")
 volume_db = -12.53
 autoplay = true
+
+[node name="Restart" type="Label" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 950.0
+offset_right = 550.0
+offset_bottom = 981.0
+text = "PRESS R TO RESTART"
+label_settings = SubResource("LabelSettings_ntiai")

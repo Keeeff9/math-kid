@@ -20,3 +20,5 @@ v .0.2.2:
  . Implemntacion de {
 	Si el puntaje esta en 0, descuenta una vida por disparo mal acertado
 	}
+ . Temporizador para Bullet
+ . Reinicar en menu pausa

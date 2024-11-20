@@ -133,3 +133,9 @@ stream = ExtResource("4_ku32k")
 
 [node name="Shield" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gf1e3")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

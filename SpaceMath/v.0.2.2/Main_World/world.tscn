@@ -493,10 +493,10 @@ position = Vector2(528, 248)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="menuPausa" parent="CanvasLayer" instance=ExtResource("8_uhaoi")]
-offset_left = -7.0
-offset_top = -3.0
-offset_right = -7.0
-offset_bottom = -3.0
+offset_left = -18.0
+offset_top = -72.0
+offset_right = -18.0
+offset_bottom = -72.0
 
 [node name="Planet" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

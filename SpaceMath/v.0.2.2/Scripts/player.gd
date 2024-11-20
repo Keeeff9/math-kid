@@ -9,6 +9,8 @@ var bullet_scene: PackedScene = load("res://Scenes/bullet.tscn")
 @onready var shield_sound: AudioStreamPlayer = $Shield
 @onready var parent_node := get_parent() # Para gestionar correctamente las balas
 
+@onready var shoot_timer: Timer = $ShootTimer
+var shoot_can =	true
 var conteo: int = 0
 var is_moving: bool = false  # Si el jugador está en movimiento
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movimientopersonaje(delta)
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and shoot_can:
 		shoot.play()
 		disparo()
 
@@ -31,6 +33,8 @@ func _physics_process(delta: float) -> void:
 
 # Función para disparar balas
 func disparo() -> void:
+	shoot_can =false
+	shoot_timer.start()
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = global_position  # Posición del jugador
 	parent_node.add_child(bullet)  # Se añade al nodo padre (más seguro que al root)
@@ -74,3 +78,7 @@ func activar_escudo() -> void:
 	shield_sound.play()  # Reproducir el sonido del escudo
 	await get_tree().create_timer(shield_sound.stream.get_length()).timeout  # Esperar a que termine la animación
 	shield_animation.visible = false  # Ocultar el escudo después de la animación
+
+#Funcoin del temporizador, conectandola al nodo
+func _on_shoot_timer_timeout() -> void:
+	shoot_can = true
