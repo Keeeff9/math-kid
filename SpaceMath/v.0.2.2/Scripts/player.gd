@@ -72,5 +72,5 @@ func activar_escudo() -> void:
 	shield_animation.visible = true  # Mostrar el escudo
 	shield_animation.play("activate")  # Cambia a la animación de activación (ajusta el nombre si es diferente)
 	shield_sound.play()  # Reproducir el sonido del escudo
-	await shield_animation.finished  # Esperar a que termine la animación
+	await get_tree().create_timer(shield_sound.stream.get_length()).timeout  # Esperar a que termine la animación
 	shield_animation.visible = false  # Ocultar el escudo después de la animación
