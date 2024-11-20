@@ -111,7 +111,7 @@ scale = Vector2(4, 3.625)
 sprite_frames = ExtResource("2_88oi5")
 animation = &"death"
 autoplay = "idle"
-frame_progress = 0.65518
+frame_progress = 0.567488
 
 [node name="shield" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -120,7 +120,7 @@ scale = Vector2(1.84375, 1.72656)
 sprite_frames = SubResource("SpriteFrames_33uc0")
 animation = &"activate"
 autoplay = "activate"
-frame_progress = 0.354564
+frame_progress = 0.26687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
