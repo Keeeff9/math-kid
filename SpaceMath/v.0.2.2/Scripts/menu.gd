@@ -24,7 +24,7 @@ func _on_exit_button_pressed() -> void:
 #Boton Comenzar 
 func _on_start_button_pressed() -> void:
 	GlobalVariables.global_Resetlife()
-	get_tree().change_scene_to_file("res://Main_World/world.tscn")
+	get_tree().change_scene_to_file("res://Main_World/move_tutorial2.tscn")
 	print("Game started")
 	
 func lifeCero_Gameover():

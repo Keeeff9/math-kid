@@ -2,7 +2,7 @@
 extends Area2D
 
 var choque_enemy := false
-var gravityy: Vector2 = Vector2(0, 65)
+var gravityy: Vector2 = Vector2(0, 70)
 var velocity: Vector2 = Vector2.ZERO
 @onready var enemy_animation: AnimatedSprite2D = $Animations
 @onready var respuesta: Label = $Respuesta
