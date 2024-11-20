@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c10r3cywv801g"]
+[gd_scene load_steps=11 format=3 uid="uid://c10r3cywv801g"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_2fa23"]
 [ext_resource type="Texture2D" uid="uid://bm4432xsxipcr" path="res://Assets/Green Effect and Bullet 16x16.png" id="2_hmuuh"]
+[ext_resource type="AudioStream" uid="uid://c35frudmvrpfl" path="res://Sound-Effetcs/success.mp3" id="3_dy86x"]
+[ext_resource type="AudioStream" uid="uid://tjb1boraydnc" path="res://Sound-Effetcs/fail.mp3" id="4_w4vup"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_floex"]
 atlas = ExtResource("2_hmuuh")
@@ -36,7 +38,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 9.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7485h"]
@@ -52,16 +54,23 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bullet"]
 texture_filter = 1
 rotation = 3.14159
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3qhqn")
 animation = &"idle"
-frame_progress = 0.824967
+autoplay = "idle"
+frame_progress = 0.0922388
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
 position = Vector2(-0.5, -3.5)
 shape = SubResource("RectangleShape2D_7485h")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Bullet"]
+
+[node name="Succes" type="AudioStreamPlayer" parent="Bullet"]
+stream = ExtResource("3_dy86x")
+
+[node name="Fail" type="AudioStreamPlayer" parent="Bullet"]
+stream = ExtResource("4_w4vup")
 
 [connection signal="area_entered" from="Bullet" to="Bullet" method="_on_area_entered"]
 [connection signal="screen_exited" from="Bullet/VisibleOnScreenNotifier2D" to="Bullet" method="_on_visible_on_screen_notifier_2d_screen_exited"]

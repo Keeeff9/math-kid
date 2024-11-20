@@ -1,4 +1,5 @@
 extends Control
+@onready var song: AudioStreamPlayer = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,5 +17,5 @@ func _process(delta: float) -> void:
 		$Background.visible = is_paused
 		$Planet.visible = is_paused
 		$Title.visible = is_paused
-	
+
 		

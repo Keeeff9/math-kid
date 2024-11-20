@@ -1,23 +1,135 @@
-[gd_scene load_steps=4 format=3 uid="uid://83t1p7bbqvfx"]
+[gd_scene load_steps=20 format=3 uid="uid://83t1p7bbqvfx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mex3r"]
 [ext_resource type="SpriteFrames" uid="uid://f4ea3wc82yqb" path="res://Animations/mainplayerAnimations.tres" id="2_88oi5"]
+[ext_resource type="AudioStream" uid="uid://b7dqe7ntk0qyx" path="res://Sound-Effetcs/shield.mp3" id="3_gf1e3"]
+[ext_resource type="Texture2D" uid="uid://cse3f6f1uv68h" path="res://Assets/Main Ship - Shields - Round Shield.png" id="3_j4rq5"]
+[ext_resource type="AudioStream" uid="uid://chuonyw13j3yj" path="res://Sound-Effetcs/shoot.mp3" id="4_ku32k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4low"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umrhe"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnq52"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtvpw"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqqf6"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu4m8"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq4f3"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2sn5"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tisdq"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4yyo"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eql1a"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pudlg"]
+atlas = ExtResource("3_j4rq5")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33uc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4low")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umrhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnq52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtvpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqqf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq4f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2sn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tisdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4yyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eql1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pudlg")
+}],
+"loop": true,
+"name": &"activate",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chtxl"]
 size = Vector2(17, 19.4167)
 
 [node name="Jugador" type="CharacterBody2D" groups=["player_group"]]
-position = Vector2(592, 477)
+position = Vector2(7, 5)
 script = ExtResource("1_mex3r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8.00002, -7.5)
 scale = Vector2(4, 3.625)
 sprite_frames = ExtResource("2_88oi5")
-animation = &"move"
+animation = &"death"
 autoplay = "idle"
+frame_progress = 0.65518
+
+[node name="shield" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, -6)
+scale = Vector2(1.84375, 1.72656)
+sprite_frames = SubResource("SpriteFrames_33uc0")
+animation = &"activate"
+autoplay = "activate"
+frame_progress = 0.354564
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
 position = Vector2(-8.5, -6.875)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_chtxl")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ku32k")
+
+[node name="Shield" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gf1e3")

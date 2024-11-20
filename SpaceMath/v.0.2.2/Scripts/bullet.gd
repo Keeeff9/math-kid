@@ -2,6 +2,7 @@ extends Area2D
 var speed := 400
 @onready var bullet: Area2D = $"."
 @onready var animated_sprite: AnimatedSprite2D =  $AnimatedSprite2D
+@onready var success: AudioStreamPlayer = $Succes
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _on_area_entered(area_enemy: Area2D) -> void:
 		var enemyLabel = area_enemy.get_node("Respuesta").text.strip_edges().to_int()
 		if(enemyLabel == GlobalVariables.correct_answer):
 			print("Le dio al que era")
+			success.play()
 			GlobalVariables.score += 10
 			GlobalVariables.emit_signal("change_score")	 			
 			var enemies = get_tree().get_nodes_in_group("enemy")

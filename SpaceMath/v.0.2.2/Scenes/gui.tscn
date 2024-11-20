@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://g23050u7d6na"]
+[gd_scene load_steps=68 format=3 uid="uid://g23050u7d6na"]
 
 [ext_resource type="Script" path="res://Scripts/gui.gd" id="1_hkawb"]
 [ext_resource type="Texture2D" uid="uid://cyqv4mi4vcaps" path="res://Assets/mainEnemy.png" id="2_2x6m2"]
@@ -432,11 +432,19 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ebfd4"]
-font_size = 28
+[sub_resource type="LabelSettings" id="LabelSettings_rxv87"]
+font = ExtResource("2_mlilq")
+font_size = 30
+shadow_color = Color(0, 0, 0.635294, 0.733333)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xg7ms"]
-font_size = 29
+font = ExtResource("2_mlilq")
+font_size = 27
+font_color = Color(1, 0.0117647, 0.329412, 0.980392)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hw3b"]
+font_size = 27
+font_color = Color(0.329412, 1, 0.286275, 1)
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_hkawb")
@@ -472,6 +480,7 @@ custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/VBoxContainer_Question"]
@@ -485,11 +494,9 @@ frame_progress = 0.979281
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_mlilq")
-text = "10+10
+text = "
 "
-label_settings = SubResource("LabelSettings_ebfd4")
-horizontal_alignment = 1
-vertical_alignment = 1
+label_settings = SubResource("LabelSettings_rxv87")
 justification_flags = 161
 uppercase = true
 
@@ -497,9 +504,9 @@ uppercase = true
 
 [node name="LifeLabelCount" type="Label" parent="Control/Label_Lifes"]
 offset_left = 120.0
-offset_top = 1056.0
+offset_top = 1080.0
 offset_right = 296.0
-offset_bottom = 1493.0
+offset_bottom = 1117.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
@@ -507,10 +514,9 @@ text = "0"
 label_settings = SubResource("LabelSettings_xg7ms")
 
 [node name="LifeLabelText" type="Label" parent="Control/Label_Lifes"]
-offset_left = 3.0
-offset_top = 1056.0
-offset_right = 119.0
-offset_bottom = 1093.0
+offset_top = 1080.0
+offset_right = 116.0
+offset_bottom = 1117.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
@@ -525,16 +531,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -144.0
-offset_top = 425.5
-offset_right = -4.0
-offset_bottom = 461.5
+offset_left = -145.0
+offset_top = 447.5
+offset_right = -5.0
+offset_bottom = 483.5
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_mlilq")
 text = "SCORE 0"
-label_settings = SubResource("LabelSettings_ebfd4")
+label_settings = SubResource("LabelSettings_5hw3b")
 horizontal_alignment = 1
 vertical_alignment = 1
