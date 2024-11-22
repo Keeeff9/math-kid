@@ -242,7 +242,7 @@ scale = Vector2(3.67917, 2.53333)
 sprite_frames = ExtResource("3_b6cud")
 animation = &"death"
 autoplay = "default"
-frame_progress = 0.544403
+frame_progress = 0.621461
 
 [node name="DescriptionReiniciar" type="Label" parent="."]
 layout_mode = 1

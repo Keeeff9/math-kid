@@ -69,3 +69,6 @@ func create_enemy():
 # Llama a create_enemy cuando el temporizador se agota
 func _on_timer_enemy_timeout() -> void:
 	create_enemy()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("volver"):
+		get_tree().change_scene_to_file("res://Main_World/Tutorial1.tscn")

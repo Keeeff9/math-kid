@@ -41,3 +41,6 @@ func lifeCero_Gameover():
 	description_reiniciar.text = "Realizaste: "+ str(GlobalVariables.score) +" Puntos!!"
 	if (GlobalVariables.score > 1):
 		description_reiniciar.text += "\nVas por buen camino!!!!!!"
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("volver"):
+		get_tree().change_scene_to_file("res://Main_World/Tutorial1.tscn")
